@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Portfolio Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <section id="login-view" class="login" hidden>
+    <form id="login-form" class="login-card">
+      <div class="brand">SS<span>.</span></div>
+      <h1>Admin Panel</h1>
+      <p class="muted">Sign in to customize your portfolio.</p>
+      <label class="field"><span>Email</span><input type="email" id="email" autocomplete="username" required /></label>
+      <label class="field"><span>Password</span><input type="password" id="password" autocomplete="current-password" required /></label>
+      <button class="btn primary" type="submit" id="login-btn">Sign in</button>
+      <p class="error" id="login-error"></p>
+      <a href="index.html" class="back">← Back to site</a>
+    </form>
+  </section>
+
+  <section id="editor-view" hidden>
+    <header class="topbar">
+      <div class="brand">SS<span>.</span> <small>Admin</small></div>
+      <div class="top-info">
+        <span id="who"></span>
+        <span id="dirty" class="muted">No changes</span>
+        <span id="size" class="size"></span>
+      </div>
+      <div class="top-actions">
+        <a href="index.html" target="_blank" class="btn ghost">View site ↗</a>
+        <button class="btn ghost" id="import-btn">Import</button>
+        <button class="btn ghost" id="export-btn">Export</button>
+        <button class="btn ghost" id="reset-btn" hidden>Reset</button>
+        <button class="btn ghost" id="logout-btn" hidden>Log out</button>
+        <button class="btn primary" id="save-btn">Save</button>
+        <input type="file" id="import-file" accept="application/json,.json" hidden />
+      </div>
+    </header>
+    <div id="banner" class="banner" hidden></div>
+    <div class="layout">
+      <aside id="tabs"></aside>
+      <main id="panel"></main>
+    </div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

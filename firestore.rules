@@ -1,0 +1,11 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Everyone can read the portfolio; only the owner can edit it.
+    match /portfolio/{docId} {
+      allow read: if true;
+      allow write: if request.auth != null
+                   && request.auth.token.email == "sayemshahriar187@gmail.com";
+    }
+  }
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Md. Shahriar Sayem — Portfolio</title>
+  <meta name="description" content="Portfolio of Md. Shahriar Sayem — CSE student at AIUB, Java & C++ developer, aspiring full-stack and agentic AI engineer." />
+  <meta property="og:title" content="Md. Shahriar Sayem — Portfolio" />
+  <meta property="og:description" content="CSE student at AIUB · Java & C++ developer · Future full-stack & agentic AI engineer." />
+  <meta property="og:url" content="https://shahriarsayem.me" />
+  <meta name="theme-color" content="#05070f" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2305070f'/><text x='50%25' y='60%25' font-size='28' font-family='Arial' font-weight='700' text-anchor='middle' fill='%2338e8ff'>SS</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+  </script>
+</head>
+<body>
+  <div id="loader"><div class="loader-inner"><div class="loader-logo">SS</div><div class="loader-bar"><span></span></div></div></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"><span></span></div>
+  <div class="spotlight" id="spotlight"></div>
+  <div class="progress" id="progress"></div>
+  <canvas id="scene"></canvas>
+
+  <nav id="nav">
+    <a href="#home" class="logo">SS<span>.</span></a>
+    <div class="nav-links" id="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="menu-btn" id="menu-btn" aria-label="Menu"><span></span><span></span></button>
+  </nav>
+
+  <header id="home" class="hero">
+    <div class="hero-text">
+      <div class="badge" id="status"></div>
+      <p class="hello">Hi there 👋, I'm</p>
+      <h1 id="hero-name"></h1>
+      <div class="typing" id="typing"></div>
+      <p class="hero-lead" id="hero-lead"></p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary magnetic">View my work
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#" id="cv-btn" class="btn btn-ghost magnetic" target="_blank" rel="noopener" hidden>Download CV</a>
+        <a href="#contact" class="btn btn-ghost magnetic">Contact me</a>
+      </div>
+      <div class="socials" id="hero-socials"></div>
+    </div>
+    <div class="hero-visual">
+      <!-- JARVIS-style holographic HUD -->
+      <div class="hud" id="hud">
+        <div class="hud-tilt" id="hud-tilt">
+          <div class="hud-glow"></div>
+          <svg class="hud-rings outer" viewBox="0 0 600 600" aria-hidden="true">
+            <defs><path id="ring-path" d="M300,300 m-273,0 a273,273 0 1,1 546,0 a273,273 0 1,1 -546,0" /></defs>
+            <circle class="r-thin" cx="300" cy="300" r="297" />
+            <g class="spin-slow"><circle class="r-ticks" cx="300" cy="300" r="287" /></g>
+            <g class="spin-text"><text class="r-text"><textPath href="#ring-path" id="ring-text"></textPath></text></g>
+            <g class="spin-med"><circle class="r-arcs" cx="300" cy="300" r="256" /></g>
+            <circle class="r-thin dim" cx="300" cy="300" r="244" />
+            <g class="spin-fast-rev"><circle class="r-dash" cx="300" cy="300" r="235" /></g>
+            <path class="r-cross" d="M300 -6v22M300 584v22M-6 300h22M584 300h22" />
+          </svg>
+          <div class="hud-sweep"></div>
+          <svg class="hud-rings inner" viewBox="0 0 600 600" aria-hidden="true">
+            <g class="spin-med-rev"><circle class="r-bold" cx="300" cy="300" r="220" /></g>
+            <g class="spin-slow"><circle class="r-seg" cx="300" cy="300" r="207" /></g>
+            <circle class="r-thin" cx="300" cy="300" r="197" />
+          </svg>
+          <div class="hud-photo"><img id="photo" alt="" /><span class="scan"></span></div>
+          <div class="orbit" id="orbit"></div>
+          <div class="readout tl"><span>J.A.R.V.I.S</span><b>SYS ONLINE</b></div>
+          <div class="readout tr"><span>CPU <b id="hud-cpu">42</b>%</span><b>MEM <span id="hud-mem">3.2</span> GB</b></div>
+          <div class="readout bl"><span>23.81°N 90.41°E</span><b>DHAKA · BD</b></div>
+          <div class="readout br"><span>MODE</span><b>LEARNING<i class="blink">▮</i></b></div>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+  </header>
+
+  <main>
+    <section id="about" class="block">
+      <div class="sec-head reveal">
+        <span class="sec-tag">About me</span>
+        <h2>Turning <span class="grad">logic</span> into <span class="grad">products</span>.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="card tilt reveal about-main">
+          <p id="about-text"></p>
+          <ul class="info" id="about-info"></ul>
+        </div>
+        <div class="stats stagger" id="stats"></div>
+      </div>
+    </section>
+
+    <section id="skills" class="block">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Skills</span>
+        <h2>My <span class="grad">tech universe</span></h2>
+        <p class="sec-sub">Move your cursor over the sphere — the tools I use today, and the ones I'm learning next.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="sphere reveal" id="sphere"></div>
+        <div class="skill-groups stagger" id="skill-groups"></div>
+      </div>
+    </section>
+
+    <section id="education" class="block">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Education</span>
+        <h2>Academic <span class="grad">journey</span></h2>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section id="projects" class="block">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Projects</span>
+        <h2>Things I've <span class="grad">built</span></h2>
+      </div>
+      <div class="projects-grid stagger" id="projects-grid"></div>
+    </section>
+
+    <section id="certificates" class="block">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Certificates</span>
+        <h2>Learning, <span class="grad">certified</span></h2>
+      </div>
+      <div class="certs-grid stagger" id="certs-grid"></div>
+    </section>
+
+    <section id="contact" class="block">
+      <div class="card contact-card reveal" id="contact-card"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> <span id="foot-name"></span> · Designed &amp; built with Three.js</span>
+    <a href="admin.html" class="admin-link">🔒 Admin</a>
+  </footer>
+
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
