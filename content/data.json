@@ -1,0 +1,102 @@
+{
+  "profile": {
+    "name": "Shahriar Sayem",
+    "fullName": "Md. Shahriar Sayem",
+    "tagline": "CSE undergraduate at AIUB building software with Java, C++ and Oracle — on my way to full-stack web development and agentic AI engineering.",
+    "roles": [
+      "CSE Student @ AIUB",
+      "Java & C++ Developer",
+      "Database Enthusiast",
+      "Future Full-Stack Engineer",
+      "Agentic AI Explorer"
+    ],
+    "about": "I'm a Computer Science & Engineering student at American International University-Bangladesh (AIUB). I enjoy breaking problems down into clean logic — from data structures in C++ to object-oriented systems in Java and relational databases in Oracle.\nRight now I'm expanding into full-stack web development and AI engineering, with a special interest in agentic AI systems that can reason, plan and act.",
+    "photo": "assets/photo.jpg",
+    "status": "Open to internships & collaborations",
+    "location": "Dhaka, Bangladesh",
+    "hometown": "Narsingdi",
+    "cv": "",
+    "stats": [
+      { "value": "7+", "label": "Skills & tools" },
+      { "value": "1+", "label": "Projects shipped" },
+      { "value": "2026", "label": "Started at AIUB" }
+    ]
+  },
+  "sections": {
+    "about": true,
+    "skills": true,
+    "education": true,
+    "projects": true,
+    "certificates": true,
+    "contact": true
+  },
+  "skills": [
+    { "name": "Java", "category": "Programming Languages", "level": 75, "learning": false },
+    { "name": "C++", "category": "Programming Languages", "level": 75, "learning": false },
+    { "name": "Oracle Database", "category": "Databases", "level": 70, "learning": false },
+    { "name": "SQL / Query Languages", "category": "Databases", "level": 70, "learning": false },
+    { "name": "Data Structures", "category": "Core CS", "level": 70, "learning": false },
+    { "name": "OOP", "category": "Core CS", "level": 70, "learning": false },
+    { "name": "Cisco Networking", "category": "Networking", "level": 55, "learning": false },
+    { "name": "HTML / CSS / JS", "category": "Web Development", "level": 35, "learning": true },
+    { "name": "React & Node.js", "category": "Web Development", "level": 15, "learning": true },
+    { "name": "Agentic AI", "category": "AI & ML", "level": 15, "learning": true },
+    { "name": "AI Engineering", "category": "AI & ML", "level": 10, "learning": true },
+    { "name": "Git & GitHub", "category": "Tools", "level": 50, "learning": false }
+  ],
+  "education": [
+    {
+      "degree": "B.Sc. in Computer Science & Engineering",
+      "institution": "American International University-Bangladesh (AIUB)",
+      "period": "Feb 2026 – Present",
+      "result": "",
+      "location": "Dhaka",
+      "details": "Skills: Cisco Networking, Query Languages, Data Structures, Object-Oriented Programming.",
+      "logo": ""
+    },
+    {
+      "degree": "Higher Secondary Certificate (HSC)",
+      "institution": "Shaheed Police Smrity College",
+      "period": "2021 – 2025",
+      "result": "",
+      "location": "Dhaka",
+      "details": "",
+      "logo": ""
+    },
+    {
+      "degree": "Secondary School Certificate (SSC)",
+      "institution": "Ideal School & College, Banasree Branch",
+      "period": "2013 – 2020",
+      "result": "",
+      "location": "Dhaka",
+      "details": "",
+      "logo": ""
+    }
+  ],
+  "projects": [
+    {
+      "title": "Restaurant Management System",
+      "summary": "A Java application that manages a restaurant's menu, orders and billing.",
+      "description": "A desktop application written in Java to digitise the day-to-day work of a restaurant — from managing the menu to taking orders and generating bills.",
+      "features": ["Menu management", "Order taking", "Billing", "Object-oriented design"],
+      "tech": ["Java", "OOP"],
+      "image": "",
+      "github": "https://github.com/shahriarsayem",
+      "live": "",
+      "featured": true
+    }
+  ],
+  "certificates": [],
+  "contact": {
+    "email": "sayemshahriar187@gmail.com",
+    "phone": "",
+    "showPhone": false,
+    "github": "https://github.com/shahriarsayem",
+    "linkedin": "https://www.linkedin.com/in/md-shahriar-sayem-ab3617360/",
+    "facebook": ""
+  },
+  "theme": {
+    "hueStart": 185,
+    "hueRange": 115
+  }
+}
