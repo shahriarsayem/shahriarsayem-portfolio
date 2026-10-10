@@ -1,4 +1,5 @@
 import { loadData, saveData, isFirebaseReady, login, logout, onAuth, clearLocal } from './store.js';
+import { ADMIN, verifyLocal, hasLocalSession, endLocalSession, lockedFor } from './admin-auth.js';
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
@@ -305,8 +306,8 @@ function exportJson() {
 async function openEditor(user) {
   $('#login-view').hidden = true;
   $('#editor-view').hidden = false;
-  $('#who').textContent = user ? user.email : 'Local mode';
-  $('#logout-btn').hidden = !user;
+  $('#who').textContent = user ? user.email : `${ADMIN.username} · local mode`;
+  $('#logout-btn').hidden = false;
   $('#reset-btn').hidden = isFirebaseReady;
   if (!data) {
     data = await loadData();
@@ -340,7 +341,11 @@ $('#import-file').onchange = async (e) => {
 $('#reset-btn').onclick = () => {
   if (confirm('Discard local changes and go back to content/data.json?')) { clearLocal(); dirty = false; location.reload(); }
 };
-$('#logout-btn').onclick = async () => { await logout(); location.reload(); };
+$('#logout-btn').onclick = async () => {
+  if (isFirebaseReady) await logout(); else endLocalSession();
+  dirty = false;
+  location.reload();
+};
 addEventListener('keydown', (e) => {
   if ((e.ctrlKey || e.metaKey) && e.key === 's' && data) { e.preventDefault(); save(); }
 });
@@ -350,10 +355,22 @@ $('#login-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = $('#login-btn'), err = $('#login-error');
   btn.disabled = true; err.textContent = '';
+  const id = $('#email').value.trim(), pw = $('#password').value;
   try {
-    await login($('#email').value.trim(), $('#password').value);
+    if (isFirebaseReady) {
+      await login(id.includes('@') ? id : ADMIN.email, pw);
+    } else {
+      const wait = lockedFor();
+      if (wait) throw new Error(`Too many attempts. Try again in ${Math.ceil(wait / 1000)}s.`);
+      if (!(await verifyLocal(id, pw))) {
+        const locked = lockedFor();
+        throw new Error(locked ? `Too many attempts. Locked for ${Math.ceil(locked / 1000)}s.` : 'Wrong username or password.');
+      }
+      await openEditor(null);
+    }
   } catch (ex) {
-    err.textContent = /invalid|wrong|not-found|credential/i.test(ex.code || '') ? 'Wrong email or password.' : (ex.message || 'Login failed');
+    err.textContent = /invalid|wrong|not-found|credential/i.test(ex.code || '') ? 'Wrong username or password.' : (ex.message || 'Login failed');
+    $('#password').value = '';
   } finally {
     btn.disabled = false;
   }
@@ -367,5 +384,5 @@ if (isFirebaseReady) {
   b.innerHTML = '<b>Local mode:</b> Firebase is not set up yet, so changes are saved only in <i>this browser</i> (a preview). '
     + 'To enable login and live saving, add your config to <code>js/firebase-config.js</code>. '
     + 'You can also <b>Export</b> and replace <code>content/data.json</code> in the repo.';
-  openEditor(null);
+  if (hasLocalSession()) openEditor(null); else showLogin();
 }
